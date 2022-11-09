@@ -1,13 +1,18 @@
 import React from "react";
+import DisplayInfo from "./DisplayInfo";
+import UserInfo from "./UserInfo";
 
 class MyComponent extends React.Component {
-  state = {
-    name: "nguyen",
-    address: "can tho",
-    age: 12,
-  };
   render() {
-    return <div>i am {this.state.name}</div>;
+    const num = ["1", "2", "2"];
+    return (
+      <div>
+        <UserInfo />
+        <DisplayInfo name="nguyenn" age="12"></DisplayInfo>
+
+        <DisplayInfo name="nguyensn" age="1s2" num={num}></DisplayInfo>
+      </div>
+    );
   }
 }
 export default MyComponent;
