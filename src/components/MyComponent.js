@@ -5,11 +5,11 @@ import UserInfo from "./UserInfo";
 class MyComponent extends React.Component {
   state = {
     listuser: [
-      { id: "1", name: "mot", age: "31" },
+      { id: "1", name: "mot", age: "13" },
 
-      { id: "2", name: "hai", age: "32" },
+      { id: "2", name: "hai", age: "30" },
 
-      { id: "3", name: "ba", age: "33" },
+      { id: "3", name: "ba", age: "63" },
     ],
   };
   render() {
