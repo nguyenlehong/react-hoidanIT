@@ -1,5 +1,5 @@
 import React from "react";
-class UserInfo extends React.Component {
+class AddUserInfo extends React.Component {
   state = {
     name: "nguyen",
     address: "can tho",
@@ -8,7 +8,7 @@ class UserInfo extends React.Component {
   Clickme = () => {
     console.log(this.state.name);
     this.setState({
-      name: "nguiyeneksejdhflkah",
+      name: "nguyen",
     });
     this.setState({
       age: Math.floor(Math.random() * 100 + 1),
@@ -27,7 +27,11 @@ class UserInfo extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    this.props.Adduser({
+      id: Math.floor(Math.random() * 100 + 1) + "-random",
+      name: this.state.name,
+      age: this.state.age,
+    });
   };
 
   render() {
@@ -62,4 +66,4 @@ class UserInfo extends React.Component {
     );
   }
 }
-export default UserInfo;
+export default AddUserInfo;

@@ -1,8 +1,15 @@
 import React from "react";
 import DisplayInfo from "./DisplayInfo";
-import UserInfo from "./UserInfo";
+import AddUserInfo from "./AddUserInfo";
 
 class MyComponent extends React.Component {
+  Adduser = (user) => {
+    console.log("check: ", user);
+    this.setState({
+      listuser: [user, ...this.state.listuser],
+    });
+  };
+
   state = {
     listuser: [
       { id: "1", name: "mot", age: "13" },
@@ -12,11 +19,21 @@ class MyComponent extends React.Component {
       { id: "3", name: "ba", age: "63" },
     ],
   };
+  handlDelete = (userId) => {
+    let listUserClone = this.state.listuser;
+    listUserClone = listUserClone.filter((item) => item.id !== userId);
+    this.setState({
+      listuser: listUserClone,
+    });
+  };
   render() {
     return (
       <div>
-        <UserInfo />
-        <DisplayInfo listUser={this.state.listuser}></DisplayInfo>
+        <AddUserInfo Adduser={this.Adduser} />
+        <DisplayInfo
+          listUser={this.state.listuser}
+          handlDelete={this.handlDelete}
+        ></DisplayInfo>
       </div>
     );
   }
